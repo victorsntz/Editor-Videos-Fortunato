@@ -1,0 +1,37 @@
+# Vídeo e áudio não vão pro GitHub: são pesados e não precisam de histórico.
+# Eles ficam no computador (ou no Drive). Aqui só mora o estilo e a skill.
+brutos/*
+!brutos/.gitkeep
+renders/*
+!renders/.gitkeep
+
+*.mp4
+*.mov
+*.m4v
+*.avi
+*.mkv
+*.mxf
+*.braw
+*.r3d
+*.insv
+*.wav
+*.aif
+*.aiff
+*.m4a
+*.mp3
+
+# Chaves de API (ElevenLabs e outras) nunca sobem
+.env
+.env.*
+
+# Dependências que o Claude instala sozinho
+node_modules/
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# Lixo do sistema
+.DS_Store
+Thumbs.db
+desktop.ini
