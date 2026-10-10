@@ -37,10 +37,9 @@ Editorial brasileiro: cara de revista impressa, papo de café e uma provocação
 
 Regra do verde: **no máximo um elemento verde por tela.** Uma palavra, um ponto, um número. Nunca dois.
 
-### Fontes (todas livres, no Google Fonts)
+### Fontes (livre, no Google Fonts)
 
-- **STIX Two Text**: a fonte de tudo. Títulos em 500, legenda em 600, ênfase em itálico 400 ou 500.
-- **Allura**: assinatura manuscrita. Uma palavra por vídeo, no título de gancho ou no fechamento, 1,18x maior que o resto da frase (igual ao site). Nunca em legenda.
+- **STIX Two Text**: a única fonte dos vídeos. Títulos em 500, legenda em 600, ênfase em itálico 400 ou 500. A legenda é em serifa de propósito: dá cara de revista e foge do Reels genérico.
 - **Rótulo (eyebrow):** STIX Two Text 600, caixa alta, espaçamento de 0,26 em, pequeno. Exemplo: `BASTIDORES · DIA 3`.
 
 ### Textura
@@ -61,7 +60,7 @@ Grão de papel por cima de tudo, 4 a 5% de opacidade, modo multiply (o mesmo do 
 
 - Rótulo pequeno em cima, linha de Tinta de 2 px, frase grande embaixo.
 - Frase em STIX Two Text 500, 96 a 120 px no Reels, alinhada à esquerda, margem lateral de 96 px.
-- Uma palavra pode ir em itálico ou em Allura.
+- Uma palavra pode ir em itálico.
 - Sobre vídeo: escurece o fundo em 40% atrás do título. Em cartela: fundo Papel, texto Tinta.
 
 ### Kit de peças
@@ -196,6 +195,7 @@ Exemplo: "3 sinais de que sua marca pede desculpas por ser daqui".
 ## 6. Nunca fazer
 
 - Legenda amarela, caixa alta gritando, fonte de impacto (Impact, Montserrat Black, The Bold Font e parecidas).
+- Qualquer fonte além da STIX Two Text. Isso inclui a Allura do site e qualquer manuscrita.
 - Emoji na legenda.
 - Mais de um elemento verde por tela. Gradiente, neon, brilho.
 - Transição de programa: cubo, giro, glitch, zoom com borrão.
