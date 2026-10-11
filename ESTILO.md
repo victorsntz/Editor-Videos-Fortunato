@@ -61,7 +61,7 @@ Grão de papel por cima de tudo, 4 a 5% de opacidade, modo multiply (o mesmo do 
 - Rótulo pequeno em cima, linha de Tinta de 2 px, frase grande embaixo.
 - Frase em STIX Two Text 500, 96 a 120 px no Reels, alinhada à esquerda, margem lateral de 96 px.
 - Uma palavra pode ir em itálico.
-- Sobre vídeo: escurece o fundo em 40% atrás do título. Em cartela: fundo Papel, texto Tinta.
+- Sempre por cima de vídeo ou foto, com o fundo escurecido em 40% atrás do título. Cartela de fundo Papel em tela cheia, não.
 
 ### Kit de peças
 
@@ -84,6 +84,10 @@ Toda peça gráfica que entrar no vídeo sai daqui. Se precisar de uma peça nov
 - Cantos de 18 px (14 px em peças pequenas).
 - Borda de 2 px em Tinta a 12%.
 - A imagem cobre o retângulo inteiro, nunca fica esticada.
+
+**Clipe vertical e foto num vídeo deitado**
+- Vão num retângulo de imagem, por cima da própria imagem desfocada e escurecida. Nunca sobre fundo Papel.
+- Fotos entram em trio, lado a lado, com rótulo e fio em Papel no alto.
 
 **Linha**
 - 1 a 2 px em Tinta. Separa blocos e fica embaixo de rótulo. É o "fio" do site.
@@ -117,7 +121,7 @@ Toda peça gráfica que entrar no vídeo sai daqui. Se precisar de uma peça nov
 
 ### Assinatura FORTUNATO
 
-Igual ao cabeçalho do site: `FORTUNATO` em STIX Two Text 600 com espaçamento de 0,2 em, um fio vertical fino e, ao lado, `ESTÚDIO / DE MARCAS` em duas linhas pequenas, caixa alta, Tinta suave. Entra na abertura do vlog e no fechamento de todo vídeo, com `fortunatoestudio.com` em rótulo.
+Igual ao cabeçalho do site: `FORTUNATO` em STIX Two Text 600 com espaçamento de 0,2 em, um fio vertical fino e, ao lado, `ESTÚDIO / DE MARCAS` em duas linhas pequenas, caixa alta, Tinta suave. Entra no fechamento dos Reels, com `fortunatoestudio.com` em rótulo. No vlog não entra: nem como vinheta na abertura, nem no fim.
 
 ### Movimento
 
@@ -125,7 +129,7 @@ Igual ao cabeçalho do site: `FORTUNATO` em STIX Two Text 600 com espaçamento d
 - Elementos entram subindo 20 a 26 px com fade, em 0,4 a 0,6 s.
 - Zoom de ênfase: de 1,00 para 1,06 em 0,5 s. No máximo um a cada 8 segundos.
 - Movimento contínuo sempre sutil. Nada balançando, nada quicando.
-- Transição: corte seco. Quando precisar, fade de 6 quadros ou uma cartela Papel entrando de baixo.
+- Transição: corte seco. Quando precisar, fade de 6 quadros.
 
 ### Câmera e cor
 
@@ -166,7 +170,7 @@ Victor falando pra câmera, uma opinião forte.
 1. **0 a 2 s:** gancho. A frase mais polêmica do vídeo em título grande. O primeiro quadro já tem texto, porque vira a capa no perfil.
 2. **2 a 10 s:** o erro comum, com um exemplo concreto.
 3. **10 a 45 s:** o porquê e o caminho. B-roll a cada 3 a 5 s.
-4. **Fim:** a frase de fechamento em cartela (Papel e Tinta), 2 s, e a pílula de chamada com o ponto verde.
+4. **Fim:** a frase de fechamento por cima do vídeo, 2 s, e a pílula de chamada com o ponto verde.
 
 ### B. Lista (Reels, 30 a 60 s)
 
@@ -186,14 +190,15 @@ Exemplo: "3 sinais de que sua marca pede desculpas por ser daqui".
 
 ### D. Vlog do estúdio (YouTube 16:9, 8 a 15 min, com cortes verticais pros Reels)
 
-1. **Abertura fria:** 5 a 10 s da cena mais forte do dia, sem vinheta.
-2. **Vinheta curta:** assinatura FORTUNATO entrando sobre Espresso, até 3 s.
-3. **Capítulos** com rótulo no canto, usando as estações do método quando fizer sentido: `PRELÚDIO`, `IMERSÃO`, `ESTRATÉGIA`, `CRIAÇÃO`, `APLICAÇÃO`, `EVOLUÇÃO`.
-4. Victor narra por cima das imagens sempre que der. É isso que faz a edição por IA funcionar bem.
-5. **Fechamento:** o que ficou do dia, numa frase, e a assinatura.
+1. **Abertura fria:** 5 a 10 s da cena mais forte do dia. O título do vídeo entra por cima dela, no fim. Não tem vinheta.
+2. **Capítulos** com rótulo no canto, usando as estações do método quando fizer sentido: `PRELÚDIO`, `IMERSÃO`, `ESTRATÉGIA`, `CRIAÇÃO`, `APLICAÇÃO`, `EVOLUÇÃO`.
+3. Victor narra por cima das imagens sempre que der. É isso que faz a edição por IA funcionar bem.
+4. **Fechamento:** sem fala, por cima de um clipe com gente, gravado no próprio dia. Entram o que ficou do dia numa frase, o próximo vídeo em rótulo e a pílula pedindo pra seguir, com o ponto verde. Sem assinatura.
 
 ## 6. Nunca fazer
 
+- Tela cheia de fundo branco (Papel): cartela, moldura ou fechamento. Texto e moldura vão por cima de imagem. O cartão pequeno do kit continua valendo.
+- Vinheta e assinatura no vlog.
 - Legenda amarela, caixa alta gritando, fonte de impacto (Impact, Montserrat Black, The Bold Font e parecidas).
 - Qualquer fonte além da STIX Two Text. Isso inclui a Allura do site e qualquer manuscrita.
 - Emoji na legenda.
@@ -230,3 +235,7 @@ Exemplo: "3 sinais de que sua marca pede desculpas por ser daqui".
 ## 9. Notas
 
 *Cresce a cada vídeo. Formato: data · vídeo · o que mudou e por quê.*
+
+- 10/out/2026 · vlog de Manaus · Vlog sem vinheta: o título entra por cima da abertura fria. O Victor pediu pra tirar.
+- 10/out/2026 · vlog de Manaus · Vlog sem assinatura no fim: o fechamento virou um pedido pra seguir, sem fala, por cima de um clipe com gente. O Victor pediu pra tirar a assinatura e deixar "um fechamento legal sem áudio pedindo pra seguir". Nos Reels a assinatura continua.
+- 10/out/2026 · vlog de Manaus · Nada de tela cheia de fundo branco: título, fechamento, clipe vertical e fotos vão por cima de imagem. O Victor não quis a tela branca e pediu um dos vídeos no fundo, "pra ficar mais humanizado". A regra foi estendida aos Reels (título de gancho e fim da provocação) pra o arquivo não se contradizer.
