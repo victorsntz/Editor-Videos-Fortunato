@@ -39,8 +39,8 @@ Regra do verde: **no máximo um elemento verde por tela.** Uma palavra, um ponto
 
 ### Fontes (livre, no Google Fonts)
 
-- **STIX Two Text**: a única fonte dos vídeos. Títulos em 500, legenda em 600, ênfase em itálico 400 ou 500. A legenda é em serifa de propósito: dá cara de revista e foge do Reels genérico.
-- **Rótulo (eyebrow):** STIX Two Text 600, caixa alta, espaçamento de 0,26 em, pequeno. Exemplo: `BASTIDORES · DIA 3`.
+- **STIX Two Text**: a única fonte dos vídeos. Todo texto da tela em 500 (médio): título, legenda, rótulo, cartão, citação e assinatura. Sem itálico e sem negrito. A legenda é em serifa de propósito: dá cara de revista e foge do Reels genérico.
+- **Rótulo (eyebrow):** STIX Two Text 500, caixa alta, espaçamento de 0,26 em, pequeno. Exemplo: `BASTIDORES · DIA 3`.
 
 ### Textura
 
@@ -48,11 +48,11 @@ Grão de papel por cima de tudo, 4 a 5% de opacidade, modo multiply (o mesmo do 
 
 ### Legenda
 
-- STIX Two Text 600, em caixa normal. Caixa alta só em rótulo.
+- STIX Two Text 500, em caixa normal. Caixa alta só em rótulo.
 - **Reels (1080x1920):** 64 a 72 px, até 2 linhas, 3 a 5 palavras por vez. Centralizada, na faixa entre y 1250 e y 1450.
 - **YouTube (1920x1080):** 52 a 56 px, uma linha de preferência, 80 px acima da base.
 - Cor sobre vídeo: Papel `#F6F5F1` com sombra suave (0 2px 12px, preto a 35%). Sobre fundo claro: Tinta `#15140F`, sem sombra.
-- Ênfase: a palavra-chave da frase em itálico. Se for a palavra do vídeo, itálico em Verde claro `#8FD1A8`. Uma por frase, no máximo.
+- Ênfase: sem itálico e sem negrito. Quando precisar destacar, a palavra do vídeo vai em Verde claro `#8FD1A8`, no mesmo peso. Uma por tela, no máximo.
 - Entrada: sobe 6 a 10 px com fade em 0,2 s. Sem quicar, sem pular palavra por palavra.
 - Legenda limpa: "né", "tipo" e "ééé" saem do texto mesmo quando ficaram no áudio. Ortografia sempre corrigida.
 
@@ -60,7 +60,7 @@ Grão de papel por cima de tudo, 4 a 5% de opacidade, modo multiply (o mesmo do 
 
 - Rótulo pequeno em cima, linha de Tinta de 2 px, frase grande embaixo.
 - Frase em STIX Two Text 500, 96 a 120 px no Reels, alinhada à esquerda, margem lateral de 96 px.
-- Uma palavra pode ir em itálico.
+- Uma palavra pode ir em Verde claro. Itálico, não.
 - Sempre por cima de vídeo ou foto, com o fundo escurecido em 40% atrás do título. Cartela de fundo Papel em tela cheia, não.
 
 ### Kit de peças
@@ -102,7 +102,7 @@ Toda peça gráfica que entrar no vídeo sai daqui. Se precisar de uma peça nov
 
 **Citação**
 - Barra vertical Verde de 3 px à esquerda.
-- Texto em itálico, grande, em Tinta (ou Papel sobre Espresso).
+- Texto grande, em 500, sem itálico, em Tinta (ou Papel sobre Espresso).
 - Assinatura embaixo em rótulo: `VICTOR FORTUNATO`.
 
 **Monograma F**
@@ -121,7 +121,7 @@ Toda peça gráfica que entrar no vídeo sai daqui. Se precisar de uma peça nov
 
 ### Assinatura FORTUNATO
 
-Igual ao cabeçalho do site: `FORTUNATO` em STIX Two Text 600 com espaçamento de 0,2 em, um fio vertical fino e, ao lado, `ESTÚDIO / DE MARCAS` em duas linhas pequenas, caixa alta, Tinta suave. Entra no fechamento dos Reels, com `fortunatoestudio.com` em rótulo. No vlog não entra: nem como vinheta na abertura, nem no fim.
+Igual ao cabeçalho do site: `FORTUNATO` em STIX Two Text 500 com espaçamento de 0,2 em, um fio vertical fino e, ao lado, `ESTÚDIO / DE MARCAS` em duas linhas pequenas, caixa alta, Tinta suave. Entra no fechamento dos Reels, com `fortunatoestudio.com` em rótulo. No vlog não entra: nem como vinheta na abertura, nem no fim.
 
 ### Movimento
 
@@ -185,7 +185,7 @@ Exemplo: "3 sinais de que sua marca pede desculpas por ser daqui".
 
 1. Gancho: o problema do cliente numa frase.
 2. Antes (rápido), processo (rabisco, conversa, mesa) e depois (a marca aplicada em retângulos de imagem).
-3. A frase do manifesto da marca em itálico, em citação.
+3. A frase do manifesto da marca em citação.
 4. Fechamento: rótulo `MARCA APROVADA`, nome do cliente e a assinatura FORTUNATO.
 
 ### D. Vlog do estúdio (YouTube 16:9, 8 a 15 min, com cortes verticais pros Reels)
@@ -201,6 +201,7 @@ Exemplo: "3 sinais de que sua marca pede desculpas por ser daqui".
 - Vinheta e assinatura no vlog.
 - Legenda amarela, caixa alta gritando, fonte de impacto (Impact, Montserrat Black, The Bold Font e parecidas).
 - Qualquer fonte além da STIX Two Text. Isso inclui a Allura do site e qualquer manuscrita.
+- Itálico ou negrito no texto da tela. Tudo em 500.
 - Emoji na legenda.
 - Mais de um elemento verde por tela. Gradiente, neon, brilho.
 - Transição de programa: cubo, giro, glitch, zoom com borrão.
@@ -239,3 +240,4 @@ Exemplo: "3 sinais de que sua marca pede desculpas por ser daqui".
 - 10/out/2026 · vlog de Manaus · Vlog sem vinheta: o título entra por cima da abertura fria. O Victor pediu pra tirar.
 - 10/out/2026 · vlog de Manaus · Vlog sem assinatura no fim: o fechamento virou um pedido pra seguir, sem fala, por cima de um clipe com gente. O Victor pediu pra tirar a assinatura e deixar "um fechamento legal sem áudio pedindo pra seguir". Nos Reels a assinatura continua.
 - 10/out/2026 · vlog de Manaus · Nada de tela cheia de fundo branco: título, fechamento, clipe vertical e fotos vão por cima de imagem. O Victor não quis a tela branca e pediu um dos vídeos no fundo, "pra ficar mais humanizado". A regra foi estendida aos Reels (título de gancho e fim da provocação) pra o arquivo não se contradizer.
+- 22/out/2026 · Reels O jeitinho brasileiro · Todo texto da tela em STIX Two Text 500, sem itálico e sem negrito (legenda, título, rótulo, cartão, citação e assinatura). O Victor pediu "apenas normal mesmo, medium" e aprovou no vídeo. Quando precisar de ênfase, a palavra do vídeo vai em Verde claro, uma por tela.
