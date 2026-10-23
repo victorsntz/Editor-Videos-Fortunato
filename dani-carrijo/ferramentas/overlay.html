@@ -14,10 +14,10 @@ body.bg{background:#555 center/cover no-repeat}
 .layer{position:absolute;inset:0;opacity:0;will-change:opacity,transform}
 /* legenda */
 .capbg{position:absolute;left:0;right:0;bottom:0;height:330px;background:linear-gradient(0deg,rgba(30,10,16,.55),rgba(30,10,16,.28) 45%,rgba(30,10,16,0))}
-.cap{position:absolute;left:0;right:0;bottom:84px;text-align:center;padding:0 240px}
+.cap{position:absolute;left:0;right:0;bottom:84px;text-align:center;padding:0 240px;text-wrap:balance}
 .cap span{font:500 50px/1.5 Satoshi;color:var(--bege2);background:rgba(57,19,32,.78);padding:6px 22px 9px;border-radius:14px;
   -webkit-box-decoration-break:clone;box-decoration-break:clone;letter-spacing:-.005em}
-.cap em{font:italic 500 58px/1 Caslon;color:var(--terra2);letter-spacing:0}
+.cap em{font:italic 500 58px/1 Caslon;color:var(--terra2);letter-spacing:0;white-space:nowrap}
 /* gancho */
 .dim{position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,8,12,.72) 0%,rgba(20,8,12,.45) 55%,rgba(20,8,12,.15) 100%)}
 .hook{position:absolute;left:120px;top:50%;transform:translateY(-50%);max-width:1050px}
@@ -46,11 +46,33 @@ body.bg{background:#555 center/cover no-repeat}
 .chap .eyebrow{display:inline-block;font-size:20px;vertical-align:6px;color:var(--bege2)}
 .chap .rule{display:none}
 /* bug do canto */
-.bug{position:absolute;right:84px;top:70px;width:170px;opacity:.85;filter:drop-shadow(0 1px 8px rgba(0,0,0,.35))}
+.bug{position:absolute;right:84px;top:70px;width:150px;padding:12px 16px;border-radius:12px;background:rgba(57,19,32,.78)}
 /* fechamento */
 .end .cta{position:absolute;left:0;right:0;top:300px;text-align:center;font:italic 500 66px/1.1 Caslon;color:var(--bege2)}
 .end .logo{top:560px;width:600px}
 .end .handle{position:absolute;left:0;right:0;top:760px;text-align:center;font:700 22px/1 Satoshi;letter-spacing:.2em;color:var(--terra2)}
+/* painel (lista e número) */
+.panel{position:absolute;right:90px;top:160px;width:700px;padding:34px 40px 38px;border-radius:22px;background:rgba(57,19,32,.92);
+  box-shadow:0 18px 34px rgba(0,0,0,.28);overflow:hidden;box-sizing:border-box}
+.panel canvas{position:absolute;right:-30px;bottom:-20px;opacity:.45}
+.panel .eyebrow{font-size:20px;color:var(--terra2);position:relative}
+.panel h3{margin:14px 0 6px;font:700 62px/1 Caslon;color:var(--bege2);text-transform:uppercase;position:relative}
+.panel .line{height:1.5px;background:rgba(231,220,202,.25);margin:18px 0 10px;position:relative}
+.item{position:relative;padding:12px 0 10px;border-bottom:1px solid rgba(231,220,202,.12)}
+.item:last-child{border-bottom:0}
+.item .n{display:inline-block;width:62px;font:italic 500 40px/1 Caslon;color:var(--terra2)}
+.item .t{font:500 37px/1.15 Satoshi;color:var(--bege2)}
+.item .d{overflow:hidden;margin-left:62px;font:400 28px/1.35 Satoshi;color:rgba(231,220,202,.82)}
+.item .d div{padding-top:6px}
+.big{position:relative;display:flex;align-items:baseline;gap:18px;margin:6px 0 2px}
+.big b{font:700 280px/.9 Caslon;color:var(--terra2);letter-spacing:-.03em}
+.big i{font:italic 500 104px/1 Caslon;color:var(--bege2)}
+.panel .sub{position:relative;font:400 30px/1.35 Satoshi;color:rgba(231,220,202,.85);margin:6px 0 20px}
+.pills{position:relative;display:flex;flex-wrap:wrap;gap:12px}
+.pill{font:500 29px/1 Satoshi;color:var(--bege2);border:1.5px solid var(--terra2);border-radius:999px;padding:10px 20px 12px}
+.end .sign{position:absolute;left:0;right:0;top:820px;text-align:center;font:500 26px/1 Satoshi;color:var(--bege);opacity:.85}
+/* transição */
+.wipe canvas{position:absolute;inset:0}
 </style></head>
 <body>
 <div id="stage"></div>
@@ -63,7 +85,7 @@ let EVENTS=[], BUILT=[];
 /* ---------- ondas Raiz Viva ---------- */
 function waves(cv,o){
   const ctx=cv.getContext('2d'),W=cv.width,H=cv.height;
-  ctx.clearRect(0,0,W,H);
+  if(!o.noclear) ctx.clearRect(0,0,W,H);
   const n=o.lines||46, draw=clamp(o.draw), ph=o.phase||0;
   ctx.lineWidth=o.width||2; ctx.strokeStyle=o.color; ctx.lineCap='round';
   for(let i=0;i<n;i++){
@@ -106,7 +128,10 @@ function build(events){
       case 'term': d=el(`<div class="term" style="${ev.side==='left'?'left:96px':'right:96px'}"><canvas width="360" height="260"></canvas><div class="eyebrow">${ev.eyebrow||'Na prática'}</div><h2>${ev.word}</h2><p>${ev.desc}</p></div>`); break;
       case 'chapter': d=el(`<div class="chap"><span class="n">${ev.n}</span><span class="eyebrow">${ev.label}</span><div class="rule"></div></div>`); break;
       case 'bug': d=el(`<img class="bug" src="logo-horizontal.png">`); break;
-      case 'end': d=el(`<div class="card end"><canvas width="1920" height="1080"></canvas><div class="cta">${ev.cta}</div><img class="logo" src="logo-empilhado.png"><div class="handle">@DANICARRIJOTERAPIACAPILAR</div></div>`); break;
+      case 'end': d=el(`<div class="card end"><canvas width="1920" height="1080"></canvas><div class="cta">${ev.cta}</div><img class="logo" src="logo-empilhado.png"><div class="handle">@DANICARRIJOTERAPIACAPILAR</div><div class="sign">Inscreva-se no canal pra não perder o próximo vídeo</div></div>`); break;
+      case 'wipe': d=el(`<div class="wipe"><canvas width="1920" height="1080"></canvas></div>`); break;
+      case 'list': d=el(`<div class="panel"><canvas width="420" height="300"></canvas><div class="eyebrow">${ev.eyebrow}</div><h3>${ev.title}</h3><div class="line"></div>${ev.items.map((it,j)=>`<div class="item"><span class="n">${String(j+1).padStart(2,'0')}</span><span class="t">${it.title}</span>${it.desc?`<div class="d"><div>${it.desc}</div></div>`:''}</div>`).join('')}</div>`); break;
+      case 'number': d=el(`<div class="panel"><canvas width="420" height="300"></canvas><div class="eyebrow">${ev.eyebrow}</div><div class="big"><b>0</b><i>${ev.unit}</i></div><div class="sub">${ev.sub}</div><div class="pills">${ev.pills.map(p=>`<span class="pill">${p.text}</span>`).join('')}</div></div>`); break;
     }
     return d;
   });
@@ -114,9 +139,10 @@ function build(events){
 
 /* ---------- render(t) determinístico ---------- */
 function render(t){
+  let vis=false;
   EVENTS.forEach((ev,i)=>{
     const d=BUILT[i], s=ev.start, e=ev.end, lt=t-s;
-    if(t<s-0.01||t>e+0.6){d.style.opacity=0;return;}
+    if(t<s-0.01||t>e+0.6){if(d.style.opacity!=='0')d.style.opacity=0;return;}
     const outD=ev.out??0.25, out=1-clamp((t-e)/outD);
     let a=1;
     switch(ev.type){
@@ -153,11 +179,48 @@ function render(t){
         const p=prog(t,s,0.5); a=p*out;
         d.querySelector('.rule').style.transform=`scaleX(${prog(t,s+0.15,0.6)})`;
         d.firstChild.style.transform=`translateY(${(1-p)*14}px)`; break;}
+      case 'wipe':{
+        // painel vinho com borda ondulada atravessa a tela; o corte acontece no meio
+        a=1; const cv=d.querySelector('canvas'),ctx=cv.getContext('2d'),W=1920,H=1080;
+        ctx.clearRect(0,0,W,H);
+        const D=e-s, p=clamp(lt/D), io=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
+        const R=-260+(W+560)*io(clamp(p/0.55)), L=-260+(W+560)*io(clamp((p-0.45)/0.55));
+        const edge=(base,y,k)=>base+70*Math.sin(y/210+k)+26*Math.sin(y/71+k*1.7);
+        const band=(off,col,al)=>{ctx.globalAlpha=al;ctx.fillStyle=col;ctx.beginPath();
+          for(let y=0;y<=H;y+=12) ctx.lineTo(edge(R+off,y,lt*2),y);
+          for(let y=H;y>=0;y-=12) ctx.lineTo(edge(L+off*0.4,y,lt*2+1),y);
+          ctx.closePath();ctx.fill();};
+        band(150,'#C16C54',1); band(0,'#391320',1);
+        ctx.save();ctx.beginPath();for(let y=0;y<=H;y+=12) ctx.lineTo(edge(R,y,lt*2),y);for(let y=H;y>=0;y-=12) ctx.lineTo(edge(L,y,lt*2+1),y);ctx.closePath();ctx.clip();
+        ctx.globalAlpha=1;
+                waves(cv,{color:'#866F9F',alpha:.35,draw:1,phase:lt*1.5,lines:34,width:1.8,x0:-0.1,spread:1.2,noclear:1});
+        ctx.restore(); ctx.globalAlpha=1;
+        if(t>e) a=0; break;}
+      case 'list':{
+        const p=prog(t,s,0.55); a=p*out; d.firstChild.style.transform=`translateX(${(1-p)*40}px)`;
+        const its=d.querySelectorAll('.item'); let act=-1;
+        ev.items.forEach((it,j)=>{ if(t>=it.t) act=j; });
+        ev.items.forEach((it,j)=>{
+          const el=its[j], q=prog(t,it.t,0.45), nxt=ev.items[j+1];
+          el.style.opacity=q*(j===act?1:0.45); el.style.transform=`translateY(${(1-q)*14}px)`;
+          el.style.display=t<it.t-0.01?'none':'block';
+          const dd=el.querySelector('.d'); if(dd){const open=prog(t,it.t+0.1,0.45)*(nxt?1-prog(t,nxt.t,0.35):1); dd.style.maxHeight=(open*120)+'px'; dd.style.opacity=open;}
+        });
+        waves(d.querySelector('canvas'),{color:'#C16C54',alpha:.5,draw:prog(t,s+0.2,1.4),phase:lt*0.35,lines:20,width:1.4,x0:0,spread:1});
+        break;}
+      case 'number':{
+        const p=prog(t,s,0.55); a=p*out; d.firstChild.style.transform=`translateX(${(1-p)*40}px)`;
+        d.querySelector('.big b').textContent=Math.round(ev.value*prog(t,s+0.3,0.9));
+        d.querySelectorAll('.pill').forEach((el,j)=>{const q=prog(t,ev.pills[j].t,0.4);el.style.opacity=q;el.style.transform=`translateY(${(1-q)*12}px)`;el.style.display=t<ev.pills[j].t-0.01?'none':'inline-block';});
+        waves(d.querySelector('canvas'),{color:'#C16C54',alpha:.5,draw:prog(t,s+0.2,1.4),phase:lt*0.35,lines:20,width:1.4,x0:0,spread:1});
+        break;}
       case 'bug': a=prog(t,s,0.6)*out*0.9; break;
       case 'capbg': a=clamp(lt/0.4)*out; break;
     }
     d.style.opacity=a;
+    if(a>0.001) vis=true;
   });
+  return vis;
 }
 window.build=build; window.render=render;
 </script>

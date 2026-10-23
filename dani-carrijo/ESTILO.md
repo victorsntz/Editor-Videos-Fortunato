@@ -87,7 +87,13 @@ As linhas onduladas do manual são fios de cabelo abstratos. Nunca uma raiz dese
 
 **Cartão de termo** (quando ela explica uma palavra técnica): fundo Vinho noite a 92%, cantos de 22 px, respiro de 36 px. Palavra em Libre Caslon Condensed Bold Bege, explicação curta em Satoshi Regular Bege a 80%. Entra subindo pela lateral, nunca tampa o rosto.
 
-**Lista numerada**: `01`, `02`, `03` em Libre Caslon itálico Terracota clara, título em Satoshi Bold.
+**Painel de lista** (quando ela enumera: patologias, etapas, sinais): caixa Vinho a 92% no lado direito, rótulo terracota, título em Libre Caslon Bold caixa alta, itens `01`, `02`, `03` em Libre Caslon itálico Terracota clara + texto em Satoshi Medium. Cada item entra na hora em que ela fala dele; o item atual acende com uma linha de explicação, os anteriores ficam a 45%. Ondas terracota no canto do painel. Enquanto o painel está na tela, o plano deixa a Dani no terço esquerdo.
+
+**Painel de número**: mesmo painel, número enorme em Libre Caslon Bold Terracota clara contando até o valor, unidade em itálico Bege, frase curta embaixo e etiquetas (pílulas com contorno terracota) entrando conforme ela cita.
+
+**Logo do canto**: logo horizontal pequeno, numa caixinha Vinho a 78% no canto superior direito. Sem a caixa, ele some na cortina clara.
+
+**Transição de ondas**: entre um bloco e outro, um painel Vinho com borda ondulada atravessa a tela da esquerda pra direita, com um fio Terracota clara na frente e linhas lilás por dentro. Dura 0,9 s e o corte acontece no meio, escondido. Usar só na troca de assunto, não em todo corte.
 
 **Número de destaque**: Libre Caslon Condensed Bold, bem grande, contando subindo.
 
@@ -111,7 +117,8 @@ As linhas onduladas do manual são fios de cabelo abstratos. Nunca uma raiz dese
 
 ### Ritmo
 
-- **YouTube:** algo muda a cada 4 a 8 s (corte de plano, legenda nova, peça gráfica).
+- **YouTube:** troca de plano a cada 3 a 4 s em média (aberto, médio, fechado), sempre no começo de uma frase. Toda emenda de corte cai numa troca de plano, pra não virar pulo.
+- **Aproximação lenta** (zoom de 1,5 pra 1,7 durante a frase) quando ela fala do assunto mais sério do bloco: "não tem mais tratamento", "o quanto antes", "não é pra todo mundo".
 - **Reels:** algo muda a cada 2 a 4 s.
 - Pausa máxima entre frases: 0,35 s no Reels, 0,6 s no YouTube. Respiro de meio segundo depois da frase mais forte.
 
@@ -181,3 +188,4 @@ Mesmo esqueleto, enquadrando o rosto no 9:16 a partir do 4K (sobra resolução).
 
 - 23/out/2026 · primeiro vídeo (bruto YouTube) · guia criado a partir do manual de identidade e do diagnóstico de marca.
 - 23/out/2026 · ep. 01 "O que é terapia capilar" · legenda e rótulo de capítulo ganharam caixa Vinho a 78%: no teste, a ênfase terracota sumia em cima da calça vinho e das mãos dela.
+- 23/out/2026 · ep. 01 · Victor achou a primeira montagem crua. Entraram troca de plano a cada ~3,5 s, aproximação lenta nos trechos sérios, transição de ondas entre os blocos, painéis de lista e número, cartela da frase forte e rótulos de capítulo. Isso vira o padrão dos vídeos de explicação.
