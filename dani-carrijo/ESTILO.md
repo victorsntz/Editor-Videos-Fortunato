@@ -57,10 +57,10 @@ Fora: fonte cursiva, Helvetica, Arial, Times, Garamond, fonte display exagerada,
 
 ### Legenda (assinatura da Dani)
 
-- Satoshi Medium, caixa normal, Bege claro `#FCF6ED`, numa **caixa Vinho noite a 78%** com cantos de 14 px, que abraça cada linha. Sem caixa, a palavra terracota some quando passa por roupa escura ou mão.
-- **YouTube (1920x1080):** 50 a 56 px, até 2 linhas curtas, centralizada, base a 84 px do pé do quadro.
+- Satoshi Medium, caixa normal, Bege claro `#FCF6ED`, **sem caixa**: só uma sombra fraca e justa nas letras (contorno escuro de 2 a 3 px + sombra macia de 14 px), o suficiente pra ler em cima do sofá bege.
+- **YouTube (1920x1080):** 42 px, até 2 linhas equilibradas, centralizada, base a 132 px do pé do quadro.
 - **Reels (1080x1920):** 62 a 70 px, 3 a 5 palavras por vez, faixa entre y 1250 e y 1450.
-- **Ênfase:** a palavra-chave da frase troca de fonte: Libre Caslon Condensed itálico, um pouco maior (+18%), em Terracota clara `#C16C54`. Uma por frase, no máximo. É isso que dá cara de Dani.
+- **Ênfase:** a palavra-chave da frase troca de fonte: Libre Caslon Condensed itálico, um pouco maior (+17%), em Terracota clara `#C16C54`, **dentro de uma caixinha Vinho a 82%** (cantos de 10 px). A caixinha fica só na palavra de destaque, porque terracota sem fundo some na roupa e nas mãos. Uma por frase, no máximo. É isso que dá cara de Dani.
 - Entrada: sobe 8 px com fade em 0,2 s. Sem pular palavra por palavra, sem karaokê colorido.
 - Legenda limpa: "né", "tipo", "éé", repetição e gaguejo saem do texto. Ortografia corrigida. Termo técnico escrito certo (tricoscopia, folículo, couro cabeludo).
 
@@ -83,7 +83,7 @@ As linhas onduladas do manual são fios de cabelo abstratos. Nunca uma raiz dese
 
 ### Kit de peças
 
-**Rótulo de capítulo**: número em Libre Caslon itálico Terracota clara (`02`) + título em Satoshi Bold caixa alta Bege claro, dentro da mesma caixa Vinho a 78% da legenda. Canto superior esquerdo, margem de 96 px.
+**Rótulo de capítulo**: número em Libre Caslon itálico Terracota clara (`02`) + título em Satoshi Bold caixa alta Bege claro, numa caixa Vinho a 78%, cantos de 14 px. Canto superior esquerdo, margem de 96 px.
 
 **Cartão de termo** (quando ela explica uma palavra técnica): fundo Vinho noite a 92%, cantos de 22 px, respiro de 36 px. Palavra em Libre Caslon Condensed Bold Bege, explicação curta em Satoshi Regular Bege a 80%. Entra subindo pela lateral, nunca tampa o rosto.
 
@@ -191,3 +191,5 @@ Mesmo esqueleto, enquadrando o rosto no 9:16 a partir do 4K (sobra resolução).
 - 23/out/2026 · ep. 01 "O que é terapia capilar" · legenda e rótulo de capítulo ganharam caixa Vinho a 78%: no teste, a ênfase terracota sumia em cima da calça vinho e das mãos dela.
 - 23/out/2026 · ep. 01 · Victor achou a primeira montagem crua. Entraram troca de plano a cada ~3,5 s, aproximação lenta nos trechos sérios, transição de ondas entre os blocos, painéis de lista e número, cartela da frase forte e rótulos de capítulo. Isso vira o padrão dos vídeos de explicação.
 - 23/out/2026 · ep. 01 · Victor aprovou a edição e pediu pra cortar o respiro do começo dos takes: o primeiro tinha 1,4 s de silêncio e outros cinco tinham entre 0,3 e 0,9 s. Agora todo take começa rente à fala.
+- 23/out/2026 · ep. 01 · feedback de que a legenda estava grande demais: caiu de 50 px pra 40 px (ênfase de 58 pra 47 px). Só a legenda mudou; painéis, rótulos e cartelas ficaram como estavam.
+- 23/out/2026 · ep. 01 · Feedback: legenda grande demais e com caixa pesada. Caiu de 50 pra 42 px, subiu de 84 pra 132 px da base, o texto branco perdeu a caixa (ficou só sombra fraca) e a caixinha Vinho ficou só na palavra de destaque.
