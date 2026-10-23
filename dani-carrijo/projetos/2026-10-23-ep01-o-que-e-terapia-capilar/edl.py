@@ -21,6 +21,11 @@ def snap(e, x, lo, hi):
     i0, i1 = int(lo*100), int(hi*100) + 1
     return (i0 + int(np.argmin(e[i0:i1]))) / 100
 
+def onset(e, a, b):
+    floor = np.percentile(e, 10); peak = np.percentile(e, 95); thr = floor + 0.08 * (peak - floor)
+    i0, i1 = int(a * 100), min(int(b * 100), len(e) - 3)
+    return next((k / 100 for k in range(i0, i1) if (e[k:k+3] > thr).all()), None)
+
 segs = []; words_out = []; T = 0.0
 for k in ORDER:
     ws = [dict(w, w=w['w'].strip()) for s in d[k] for w in s['words']]
@@ -40,10 +45,14 @@ for k in ORDER:
         after_rem = [b for a, b in rem if (mid(ws[I-1]) if I > 0 else -1) < b <= mid(r[0]) + 0.01 and a < mid(r[0])]
         before_rem = [a for a, b in rem if mid(r[-1]) < a and (J+1 >= len(ws) or mid(ws[J+1]) >= a)]
         a = after_rem[0] if after_rem else snap(E, max(0, r[0]['s'] - PRE), prev_e, r[0]['s'])
+        if not after_rem:
+            # o Whisper às vezes marca a 1ª palavra em 0,00 s mesmo com silêncio antes: corta rente à voz de verdade
+            on = onset(E, a, a + 2.5)
+            if on is not None and on - 0.06 - a > 0.12: a = round(on - 0.06, 2)
         b = before_rem[0] if before_rem else snap(E, r[-1]['e'] + POST, r[-1]['e'] - 0.04, next_s)
         segs.append({'clip': k, 'in': round(a, 3), 'out': round(b, 3), 't0': round(T, 3)})
         for w in r:
-            words_out.append({'w': w['w'], 's': round(T + max(0, w['s'] - a), 3), 'e': round(T + w['e'] - a, 3), 'clip': k})
+            words_out.append({'w': w['w'], 's': round(T + max(0, w['s'] - a), 3), 'e': round(T + max(w['e'] - a, max(0, w['s'] - a) + 0.12), 3), 'clip': k})
         T += b - a
 json.dump({'segments': segs, 'words': words_out, 'duration': T}, open('/tmp/claude-0/edl.json', 'w'), ensure_ascii=False, indent=1)
 print(len(segs), 'segmentos, duração', round(T, 2))

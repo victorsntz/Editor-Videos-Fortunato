@@ -121,6 +121,7 @@ As linhas onduladas do manual são fios de cabelo abstratos. Nunca uma raiz dese
 - **Aproximação lenta** (zoom de 1,5 pra 1,7 durante a frase) quando ela fala do assunto mais sério do bloco: "não tem mais tratamento", "o quanto antes", "não é pra todo mundo".
 - **Reels:** algo muda a cada 2 a 4 s.
 - Pausa máxima entre frases: 0,35 s no Reels, 0,6 s no YouTube. Respiro de meio segundo depois da frase mais forte.
+- **Começo de take sem respiro:** o corte entra com ela já falando (no máximo 0,06 s antes da primeira sílaba). Conferir pelo áudio, porque a transcrição às vezes marca a primeira palavra em 0,00 s mesmo com um segundo de silêncio antes.
 
 ### Som
 
@@ -189,3 +190,4 @@ Mesmo esqueleto, enquadrando o rosto no 9:16 a partir do 4K (sobra resolução).
 - 23/out/2026 · primeiro vídeo (bruto YouTube) · guia criado a partir do manual de identidade e do diagnóstico de marca.
 - 23/out/2026 · ep. 01 "O que é terapia capilar" · legenda e rótulo de capítulo ganharam caixa Vinho a 78%: no teste, a ênfase terracota sumia em cima da calça vinho e das mãos dela.
 - 23/out/2026 · ep. 01 · Victor achou a primeira montagem crua. Entraram troca de plano a cada ~3,5 s, aproximação lenta nos trechos sérios, transição de ondas entre os blocos, painéis de lista e número, cartela da frase forte e rótulos de capítulo. Isso vira o padrão dos vídeos de explicação.
+- 23/out/2026 · ep. 01 · Victor aprovou a edição e pediu pra cortar o respiro do começo dos takes: o primeiro tinha 1,4 s de silêncio e outros cinco tinham entre 0,3 e 0,9 s. Agora todo take começa rente à fala.
