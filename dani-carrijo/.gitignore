@@ -1,0 +1,11 @@
+# Bruto e render da Dani ficam fora do GitHub (pesados, sem histórico)
+brutos/*
+!brutos/.gitkeep
+renders/*
+!renders/.gitkeep
+*.MOV
+*.MP4
+
+# Fontes não sobem (baixar de novo: ver CLAUDE.md)
+*.ttf
+*.otf

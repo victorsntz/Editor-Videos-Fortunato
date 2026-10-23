@@ -1,0 +1,164 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+@font-face{font-family:Caslon;src:url("LibreCaslonCondensed[wght].ttf");font-weight:400 700;font-style:normal}
+@font-face{font-family:Caslon;src:url("LibreCaslonCondensed-Italic[wght].ttf");font-weight:400 700;font-style:italic}
+@font-face{font-family:Satoshi;src:url("Satoshi-Light.ttf");font-weight:300}
+@font-face{font-family:Satoshi;src:url("Satoshi-Regular.ttf");font-weight:400}
+@font-face{font-family:Satoshi;src:url("Satoshi-Medium.ttf");font-weight:500}
+@font-face{font-family:Satoshi;src:url("Satoshi-Bold.ttf");font-weight:700}
+:root{--terra:#84482E;--terra2:#C16C54;--roxo:#673043;--vinho:#391320;--lilas:#866F9F;--bege:#E7DCCA;--bege2:#FCF6ED;--carvao:#222C30}
+html,body{margin:0;width:1920px;height:1080px;overflow:hidden;background:transparent}
+body.bg{background:#555 center/cover no-repeat}
+#stage{position:absolute;inset:0}
+.layer{position:absolute;inset:0;opacity:0;will-change:opacity,transform}
+/* legenda */
+.capbg{position:absolute;left:0;right:0;bottom:0;height:330px;background:linear-gradient(0deg,rgba(30,10,16,.55),rgba(30,10,16,.28) 45%,rgba(30,10,16,0))}
+.cap{position:absolute;left:0;right:0;bottom:84px;text-align:center;padding:0 240px}
+.cap span{font:500 50px/1.5 Satoshi;color:var(--bege2);background:rgba(57,19,32,.78);padding:6px 22px 9px;border-radius:14px;
+  -webkit-box-decoration-break:clone;box-decoration-break:clone;letter-spacing:-.005em}
+.cap em{font:italic 500 58px/1 Caslon;color:var(--terra2);letter-spacing:0}
+/* gancho */
+.dim{position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,8,12,.72) 0%,rgba(20,8,12,.45) 55%,rgba(20,8,12,.15) 100%)}
+.hook{position:absolute;left:120px;top:50%;transform:translateY(-50%);max-width:1050px}
+.eyebrow{font:700 22px/1 Satoshi;letter-spacing:.2em;text-transform:uppercase;color:var(--bege)}
+.rule{height:2px;background:var(--terra2);width:120px;margin:22px 0 30px;transform-origin:left}
+.hook h1{margin:0;font:700 120px/.98 Caslon;color:var(--bege2);text-transform:uppercase;letter-spacing:-.005em}
+.hook h1 em{font-style:italic;font-weight:500;text-transform:none;color:var(--terra2)}
+/* cartela cheia */
+.card{position:absolute;inset:0;background:var(--vinho)}
+.card canvas{position:absolute;inset:0}
+.logo{position:absolute;left:50%;top:50%;width:760px;transform:translate(-50%,-50%)}
+.quote{position:absolute;left:180px;right:180px;top:50%;transform:translateY(-50%);text-align:center}
+.quote p{margin:0;font:italic 500 100px/1.04 Caslon;color:var(--bege2)}
+.quote p b{font-weight:600;color:var(--terra2)}
+.quote .eyebrow{margin-top:44px;color:var(--bege);opacity:.8}
+/* cartão de termo */
+.term{position:absolute;top:150px;width:520px;padding:38px 40px 40px;border-radius:22px;background:rgba(57,19,32,.93);
+  box-shadow:0 18px 34px rgba(0,0,0,.28);overflow:hidden}
+.term .eyebrow{font-size:17px;color:var(--terra2)}
+.term h2{margin:16px 0 14px;font:700 64px/1 Caslon;color:var(--bege2);text-transform:uppercase}
+.term p{margin:0;font:400 27px/1.38 Satoshi;color:rgba(252,246,237,.86)}
+.term canvas{position:absolute;right:-40px;bottom:-30px;opacity:.5}
+/* capítulo */
+.chap{position:absolute;left:96px;top:72px;background:rgba(57,19,32,.78);border-radius:14px;padding:14px 22px 16px}
+.chap .n{font:italic 500 40px/1 Caslon;color:var(--terra2);margin-right:12px}
+.chap .eyebrow{display:inline-block;font-size:20px;vertical-align:6px;color:var(--bege2)}
+.chap .rule{display:none}
+/* bug do canto */
+.bug{position:absolute;right:84px;top:70px;width:170px;opacity:.85;filter:drop-shadow(0 1px 8px rgba(0,0,0,.35))}
+/* fechamento */
+.end .cta{position:absolute;left:0;right:0;top:300px;text-align:center;font:italic 500 66px/1.1 Caslon;color:var(--bege2)}
+.end .logo{top:560px;width:600px}
+.end .handle{position:absolute;left:0;right:0;top:760px;text-align:center;font:700 22px/1 Satoshi;letter-spacing:.2em;color:var(--terra2)}
+</style></head>
+<body>
+<div id="stage"></div>
+<script>
+const E = t => t<=0?0:t>=1?1:1-Math.pow(1-t,3.2);            // assenta devagar
+const clamp=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));
+const prog=(t,s,d)=>E(clamp((t-s)/d));
+let EVENTS=[], BUILT=[];
+
+/* ---------- ondas Raiz Viva ---------- */
+function waves(cv,o){
+  const ctx=cv.getContext('2d'),W=cv.width,H=cv.height;
+  ctx.clearRect(0,0,W,H);
+  const n=o.lines||46, draw=clamp(o.draw), ph=o.phase||0;
+  ctx.lineWidth=o.width||2; ctx.strokeStyle=o.color; ctx.lineCap='round';
+  for(let i=0;i<n;i++){
+    const u=i/(n-1);
+    // cada fio começa um pouco depois do anterior: desenha da raiz pra ponta
+    const local=clamp((draw*1.35)-u*0.35);
+    if(local<=0) continue;
+    ctx.globalAlpha=(o.alpha||1)*(0.55+0.45*Math.sin(u*Math.PI));
+    ctx.beginPath();
+    const steps=140, len=Math.floor(steps*local);
+    for(let k=0;k<=len;k++){
+      const v=k/steps;
+      // fio corre na vertical; deslocamento lateral por campo suave
+      const y=H*(1.05-v*1.1);
+      const base=W*(o.x0??-0.1)+u*W*(o.spread||1.2);
+      const dx= Math.sin(v*3.1+u*2.2+ph)*W*0.06
+              + Math.sin(v*7.3-u*4.1+ph*0.6)*W*0.018
+              + Math.sin(u*5.0+v*1.4+ph*0.35)*W*0.05
+              + (o.bend||0)*W*Math.pow(v,2);
+      const x=base+dx;
+      k?ctx.lineTo(x,y):ctx.moveTo(x,y);
+    }
+    ctx.stroke();
+  }
+  ctx.globalAlpha=1;
+}
+
+/* ---------- construção ---------- */
+function el(html){const d=document.createElement('div');d.className='layer';d.innerHTML=html;document.getElementById('stage').appendChild(d);return d;}
+function build(events){
+  EVENTS=events;
+  BUILT=events.map(ev=>{
+    let d;
+    switch(ev.type){
+      case 'caption': d=el(`<div class="cap"><span>${ev.html}</span></div>`); break;
+      case 'capbg': d=el(`<div class="capbg"></div>`); break;
+      case 'hook': d=el(`<div class="dim"></div><div class="hook"><div class="eyebrow">${ev.eyebrow}</div><div class="rule"></div><h1>${ev.title}</h1></div>`); break;
+      case 'logo': d=el(`<div class="card"><canvas width="1920" height="1080"></canvas><img class="logo" src="logo-empilhado.png"></div>`); break;
+      case 'quote': d=el(`<div class="card" style="background:${ev.bg||'var(--vinho)'}"><canvas width="1920" height="1080"></canvas><div class="quote"><p>${ev.text}</p><div class="eyebrow">Dani Carrijo · Terapeuta capilar</div></div></div>`); break;
+      case 'term': d=el(`<div class="term" style="${ev.side==='left'?'left:96px':'right:96px'}"><canvas width="360" height="260"></canvas><div class="eyebrow">${ev.eyebrow||'Na prática'}</div><h2>${ev.word}</h2><p>${ev.desc}</p></div>`); break;
+      case 'chapter': d=el(`<div class="chap"><span class="n">${ev.n}</span><span class="eyebrow">${ev.label}</span><div class="rule"></div></div>`); break;
+      case 'bug': d=el(`<img class="bug" src="logo-horizontal.png">`); break;
+      case 'end': d=el(`<div class="card end"><canvas width="1920" height="1080"></canvas><div class="cta">${ev.cta}</div><img class="logo" src="logo-empilhado.png"><div class="handle">@DANICARRIJOTERAPIACAPILAR</div></div>`); break;
+    }
+    return d;
+  });
+}
+
+/* ---------- render(t) determinístico ---------- */
+function render(t){
+  EVENTS.forEach((ev,i)=>{
+    const d=BUILT[i], s=ev.start, e=ev.end, lt=t-s;
+    if(t<s-0.01||t>e+0.6){d.style.opacity=0;return;}
+    const outD=ev.out??0.25, out=1-clamp((t-e)/outD);
+    let a=1;
+    switch(ev.type){
+      case 'caption':{
+        const p=prog(t,s,0.2); a=p*(t>e?0:1);
+        d.style.transform=`translateY(${(1-p)*8}px)`; break;}
+      case 'hook':{
+        a=out*clamp(lt/0.15);
+        const h=d.querySelector('.hook');
+        const p1=prog(t,s,0.5),p2=prog(t,s+0.15,0.6),p3=prog(t,s+0.25,0.6);
+        h.children[0].style.cssText=`opacity:${p1};transform:translateY(${(1-p1)*18}px)`;
+        h.children[1].style.transform=`scaleX(${p2})`;
+        h.children[2].style.cssText=`opacity:${p3};transform:translateY(${(1-p3)*24}px)`;
+        break;}
+      case 'logo': case 'quote': case 'end':{
+        a=clamp(lt/0.3)*out;
+        const cv=d.querySelector('canvas');
+        const isLogo=ev.type==='logo';
+        waves(cv,{color:ev.type==='end'?'#866F9F':(isLogo?'#C16C54':'#E7DCCA'),alpha:isLogo?0.8:0.26,
+          draw:prog(t,s,isLogo?1.6:1.2),phase:lt*0.35,lines:isLogo?54:40,width:isLogo?2.6:2,
+          x0:isLogo?0.52:-0.1,spread:isLogo?0.62:1.2,bend:isLogo?0.12:0});
+        const tgt=d.querySelector('.logo,.quote');
+        const pd=isLogo?0.55:0.3, p=prog(t,s+pd,0.7);
+        if(isLogo){tgt.style.left='31%';}
+        tgt.style.opacity=p; tgt.style.marginTop=`${(1-p)*22}px`;
+        if(ev.type==='end'){const c=d.querySelector('.cta'),h=d.querySelector('.handle');const q=prog(t,s+0.2,0.7);c.style.opacity=q;c.style.transform=`translateY(${(1-q)*20}px)`;h.style.opacity=prog(t,s+0.9,0.6);}
+        break;}
+      case 'term':{
+        const p=prog(t,s,0.55); a=p*out;
+        d.firstChild.style.transform=`translateY(${(1-p)*22}px)`;
+        waves(d.querySelector('canvas'),{color:'#C16C54',alpha:.6,draw:prog(t,s+0.2,1.2),phase:lt*0.4,lines:18,width:1.4,x0:0,spread:1});
+        break;}
+      case 'chapter':{
+        const p=prog(t,s,0.5); a=p*out;
+        d.querySelector('.rule').style.transform=`scaleX(${prog(t,s+0.15,0.6)})`;
+        d.firstChild.style.transform=`translateY(${(1-p)*14}px)`; break;}
+      case 'bug': a=prog(t,s,0.6)*out*0.9; break;
+      case 'capbg': a=clamp(lt/0.4)*out; break;
+    }
+    d.style.opacity=a;
+  });
+}
+window.build=build; window.render=render;
+</script>
+</body></html>
